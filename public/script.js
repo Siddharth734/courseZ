@@ -1,15 +1,3 @@
-function toggleSL(){
-    const signup = document.getElementById("signupForm");
-    const login = document.getElementById("loginForm");
-    if(signup.style.display === 'none'){
-        signup.style.display = 'flex';
-        login.style.display = 'none';
-    }else{
-        signup.style.display = 'none';
-        login.style.display = 'flex';
-    }
-}
-
 function toggleMaker() {
     const main = document.getElementById("Maker");
     const signup = document.getElementById("signupForm");
@@ -33,7 +21,7 @@ async function Signup() {
         const email = document.getElementById("signup-email-input");
         const name = document.getElementById("signup-name-input");
         const password = document.getElementById("signup-password-input");
-        const response = await axios.post("http://localhost:3009/signup",{
+        const response = await axios.post("http://localhost:3009/user/signup",{
             email: email.value,
             name: name.value,
             password: password.value
@@ -53,7 +41,7 @@ async function Login() {
     try {
         const email = document.getElementById("login-email-input");
         const password = document.getElementById("login-password-input");
-        const response = await axios.post("http://localhost:3009/login",{
+        const response = await axios.post("http://localhost:3009/user/login",{
             email: email.value,
             password: password.value
         });

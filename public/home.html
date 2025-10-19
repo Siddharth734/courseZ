@@ -3,15 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Headland+One&family=Share+Tech&display=swap');
+  </style>
 </head>
-<body class="flex">
-    <div class="bg-red-500">
-      <a href="home.html">Home</a>
-      <a href="index.html">Courses</a>
+<body class="flex flex-col bg-gray-50">
+  <div>
+    <div class="flex shadow-md p-2 justify-between">
+      <div class="h-[75px] w-[75px] bg-cyan-400 rounded-full p-2"></div>
+      <!-- <img src="https://i.pinimg.com/736x/f6/b8/2c/f6b82c39d614449885332f251a145a31.jpg" alt="profile pic"
+          class="h-[75px] w-[75px] rounded-[35px] p-2"> -->
+      <div class="flex justify-center text-4xl text-slate-600 font-['Headland_One',serif] font-extrabold p-2 pt-4">CourseZ</div>
+      <input id="signup-btn-home"
+      class="text-white bg-cyan-500 hover:bg-cyan-600 hover:cursor-pointer px-5 rounded-[20px] my-4" 
+      type="button" value="signup/login" onclick="location.href='signupLoginpage.html'">
     </div>
-    <div class="flex-col my-[10%] mx-[10%] shadow-xl rounded-[5px]">
-        
+  
+    <div class="flex min-h-screen">
+      <div class="flex flex-col shadow-xl/30 p-5 w-48">
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="home.html">Home</a>
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="index.html">Courses</a>
+      </div>
+
+      <div class="flex-1 p-8">
+        <div id="course-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- <div id="course-container" class="flex flex-wrap justify-around gap-6"> -->
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-yellow-300 p-24">Web Tech Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+          
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-cyan-200 p-24">AIML Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+          
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-yellow-300 p-24">Web Tech Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+          
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-cyan-200 p-24">AIML Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-yellow-300 p-24">Web Tech Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+          
+          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <div class="bg-cyan-200 p-24">AIML Course</div>
+            <div class="p-16 ">Cost -/</div>
+          </div>
+
+        </div>
+      </div>
     </div>
     
     <script src="axios.min.js"></script>

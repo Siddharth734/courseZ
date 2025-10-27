@@ -101,10 +101,10 @@ async function deleteCourse(id) {
 
 function courseDOM(c) {
     return `<div class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden"> 
-                <img class="object-cover transition-transform duration-700" src=${c.image} 
+                <img class="object-cover h-[183px] w-[248px]" src=${c.image} 
                 alt="/">
                 <h2 class="text-red-400 font-bold p-1 bg-gray-300">${c.title}</h2>
-                <p class="p-1 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?</p>
+                <p class="p-1 text-[#949494]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?</p>
                 <h2 class="text-red-400 font-bold px-4 text-left hover:text-gray-300">COST: ₹${c.cost}/-</h2>
                 <div class="flex justify-around border-t border-gray-100">
                     <button class="text-red-400 text-2xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
@@ -118,15 +118,15 @@ function courseDOM(c) {
                 </div>
 
                 <div id='${c._id}' class="absolute bottom-[-50%] h-[50%] w-full rounded-b-xl bg-transparent transition-all duration-300 ease-in-out">
-                    <input type="text" placeholder="Name" class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
+                    <input id="edit-title${c._id}" type="text" placeholder="Title" class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
                     <p class="p-1 bg-red-400 text-red-400 opacity-[50%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?</p>
-                    <input type="text" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-black">
+                    <input id="edit-cost${c._id}" type="number" min="50" max="7999" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-[#333333] w-full">
                     <div class="flex justify-around border-t border-gray-100">
-                        <button class="text-yellow-300 font-extrabold bg-black text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-black transition-all duration-300 ease-in-out"
-                        onclick="editCourse()">
+                        <button class="text-yellow-300 font-extrabold bg-[#333333] text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-[#333333] transition-all duration-300 ease-in-out"
+                        onclick="editCourse('${c._id}')">
                             Save
                         </button>
-                        <button class="text-white font-extrabold bg-black text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                        <button class="text-white font-extrabold bg-[#333333] text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
                         onclick="toggleEdit('${c._id}')">
                             Cancel
                         </button>
@@ -146,8 +146,28 @@ function toggleEdit(id) {
     }
 }
 
-// async function editCourse() {
+async function editCourse(id) {
+    try {
+        const newTitle = document.getElementById(`edit-title${id}`);
+        const newCost = document.getElementById(`edit-cost${id}`);
     
-// }
+        if(newTitle.value.trim()==="" && newCost.value.trim()===""){
+            alert("INVALID INPUT: both input fields are empty!");
+            return;
+        }
+    
+        const response = await axios.put("http://localhost:3009/admin/course",{
+            title: newTitle.value,
+            cost: newCost.value,
+            id: id
+        })
+
+        alert(`${response.data.message}`)
+
+        loadcourses();
+    } catch (error) {
+        alert(`error occured while trying to update the task: ${error}`)
+    }
+}
 
 init();

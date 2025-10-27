@@ -11,6 +11,7 @@ const { JWT_SECRET, auth } = require('./authentication');
 const { UserModel } = require('./db');
 const { authRouter } = require('./routers/googleOauthR')
 const { adminRouter } = require('./routers/adminR')
+const { courseRouter } = require('./routers/courseR')
 
 const app = express();
 const PORT = 3009;
@@ -26,6 +27,7 @@ app.use(express.static('public'));
 // }));
 
 app.use('/admin', adminRouter);
+app.use('/course', courseRouter);
 
 async function startServer() {
     try {

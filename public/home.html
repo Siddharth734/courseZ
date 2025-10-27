@@ -1,69 +1,82 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Headland+One&family=Share+Tech&display=swap');
   </style>
 </head>
+
 <body class="flex flex-col bg-gray-50">
   <div>
     <div class="flex shadow-md p-2 justify-between">
       <div class="h-[75px] w-[75px] bg-cyan-400 rounded-full p-2"></div>
       <!-- <img src="https://i.pinimg.com/736x/f6/b8/2c/f6b82c39d614449885332f251a145a31.jpg" alt="profile pic"
           class="h-[75px] w-[75px] rounded-[35px] p-2"> -->
-      <div class="flex justify-center text-4xl text-slate-600 font-['Headland_One',serif] font-extrabold p-2 pt-4">CourseZ</div>
+      <div class="flex justify-center text-4xl text-slate-600 font-['Headland_One',serif] font-extrabold p-2 pt-4">
+        CourseZ</div>
       <input id="signup-btn-home"
-      class="text-white bg-cyan-500 hover:bg-cyan-600 hover:cursor-pointer px-5 rounded-[20px] my-4" 
-      type="button" value="signup/login" onclick="location.href='signupLoginpage.html'">
+        class="text-white bg-cyan-500 hover:bg-cyan-600 hover:cursor-pointer px-5 rounded-[20px] my-4" type="button"
+        value="signup/login" onclick="location.href='signupLoginpage.html'">
     </div>
-  
+
     <div class="flex min-h-screen">
-      <div class="flex flex-col shadow-xl/30 p-5 w-48">
-        <a class="text-slate-600 p-2 hover:bg-gray-100" href="home.html">Home</a>
-        <a class="text-slate-600 p-2 hover:bg-gray-100" href="index.html">Courses</a>
+      <div class="flex flex-col shadow-xl/30 pt-5 gap-6 w-32">
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="home.html">Courses</a>
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="index.html">My Courses</a>
       </div>
 
-      <div class="flex-1 p-8">
+      <div class="flex-1 p-6">
         <div id="course-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <!-- <div id="course-container" class="flex flex-wrap justify-around gap-6"> -->
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-yellow-300 p-24">Web Tech Course</div>
-            <div class="p-16 ">Cost -/</div>
+          <!-- <div id="course-container" class="flex flex-wrap justify-around gap-6"> -->
+          <div
+            class="group rounded-xl shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <img class="object-cover h-[239px] w-[317px]"
+              src="https://images.unsplash.com/photo-1694878982234-58d53e0d1655?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHdlYnNpdGUlMjBzY3JlZW58ZW58MHwwfDB8fHww&auto=format&fit=crop&q=60&w=600"
+              alt="/">
+            <div class="flex flex-col gap-4 p-4">
+              <h1 class="text-2xl mb-[8%]">How to be the nest big thing</h1>
+              <p class="text-xl px-4 bg-gray-100 text-red-400">₹ 5999/-</p>
+              <div class="flex gap-1">
+                <!-- flex-1 makes it take up all the remaining space -->
+                <button class="flex-1 bg-[#393E46] px-4 py-2 rounded-2xl text-white hover:bg-[#222831]">Buy Now <i
+                    class="ri-arrow-right-line"></i>
+                </button>
+                <button class="border-2 border-red-400 rounded-full text-red-400 w-[10%] hover:text-red-300 focus:w-[15%] focus:text-white focus:bg-red-400 transition-all duration-300 ease-in-out">
+                  <i class="ri-thumb-up-fill"></i>
+                </button>
+                <button class="border-2 border-red-400 rounded-full text-white bg-red-400 w-[10%] focus:w-[15%] focus:text-red-400 focus:bg-white transition-all duration-300 ease-in-out">
+                  <i class="ri-thumb-up-fill"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-cyan-200 p-24">AIML Course</div>
-            <div class="p-16 ">Cost -/</div>
-          </div>
-          
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-yellow-300 p-24">Web Tech Course</div>
-            <div class="p-16 ">Cost -/</div>
-          </div>
-          
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-cyan-200 p-24">AIML Course</div>
-            <div class="p-16 ">Cost -/</div>
-          </div>
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-yellow-300 p-24">Web Tech Course</div>
-            <div class="p-16 ">Cost -/</div>
-          </div>
-          
-          <div class="group rounded shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
-            <div class="bg-cyan-200 p-24">AIML Course</div>
-            <div class="p-16 ">Cost -/</div>
+
+          <div
+            class="group rounded-xl shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+            <img class="object-cover h-[50%]"
+            src="https://images.unsplash.com/photo-1510746001195-0db09655b6db?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332"
+            alt="/">
+            <div class="flex flex-col gap-4 p-4">
+              <h1 class="text-2xl mb-[8%]">Beginner's Guide to ICs</h1>
+              <p class="text-xl bg-gray-100 px-4 text-red-400">₹ 5999/-</p>
+              <button class="bg-[#393E46] px-4 py-2 rounded-2xl text-white hover:bg-[#222831]">Buy Now <i
+                  class="ri-arrow-right-line"></i>
+              </button>
+            </div>
           </div>
 
         </div>
       </div>
     </div>
-    
+
     <script src="axios.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

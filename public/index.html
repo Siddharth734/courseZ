@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CourseZ</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Headland+One&family=Share+Tech&display=swap');
@@ -25,25 +26,24 @@
         value="Signup" onclick="toggleMaker();"> -->
     </div>
 
-    <div class="flex">
-      <div class="flex flex-col shadow-xl/30 min-h-screen p-5">
-        <a class="text-slate-600 p-5" href="home.html">Home</a>
-        <a class="text-slate-600 p-5" href="index.html">Courses</a>
+    <div class="flex min-h-screen">
+      <div class="flex flex-col shadow-xl/30 pt-5 gap-6 w-32">
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="home.html">Courses</a>
+        <a class="text-slate-600 p-2 hover:bg-gray-100" href="index.html">My Courses</a>
       </div>
 
-      <div id="courses" class="
-      ">
-        <div class="flex-col m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl">
+      <div id="courses" class="grid grid-cols-4">
+        <div class="group m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl overflow-hidden">
           <div class="text-3xl font-bold underline bg-red-500 rounded-[5px] p-10">Hello world!</div>
           <div class="m-[10%] rounded-[5px] text-xl">How to write Hello world!</div>
         </div>
 
-        <div class="flex-col m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl">
+        <div class="m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl">
           <div class="text-3xl font-bold underline bg-red-500 rounded-[5px] p-10">Hello world!</div>
           <div class="m-[10%] rounded-[5px] text-xl">How to write Hello world!</div>
         </div>
 
-        <div class="flex-col m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl">
+        <div class="m-[10%] border border-gray-400 rounded-[10px] hover:shadow-xl">
           <div class="text-3xl font-bold underline bg-red-500 rounded-[5px] p-10">Hello world!</div>
           <div class="m-[10%] rounded-[5px] text-xl">How to write Hello world!</div>
         </div>

@@ -35,96 +35,98 @@
             </div>
         </div>
 
-        <div id="courses"
-            class="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[50px] min-h-screen px-10">
-
-            <div
-                class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden">
-                <img class="h-[50%] object-cover transition-transform duration-700"
-                    src="https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2huaWNhbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
-                    alt="/">
-                <h2 class="text-red-400 font-bold p-1 bg-gray-200">Course 1</h2>
-                <p class="p-1 text-[#949494]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?
-                </p>
-                <h2 class="text-red-400 font-bold px-4 text-left hover:text-lime-400">COST: ₹1,166/-</h2>
-                <div class="flex justify-around border-t border-gray-100">
-                    <button
-                        class="text-red-400 text-2xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
-                        onclick="deleteCourse()">
-                        <i class="ri-close-circle-line" on></i>
-                    </button>
-                    <button
-                        class="text-white text-2xl p-3 w-[50%] hover:bg-gray-200 hover:text-black transition-all duration-300 ease-in-out"
-                        onclick="toggleEdit('1')">
-                        <i class="ri-edit-box-line"></i>
-                    </button>
-                </div>
-
-                <div id="1" class="hidden absolute top-[50%] h-[50%] w-full rounded-b-xl bg-transparent">
-                    <input type="text" placeholder="Name"
-                        class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
-                    <p class="p-1 bg-red-400 text-red-400 opacity-[50%]">Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Nulla, praesentium?</p>
-                    <input type="text" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-black">
+        <div class="p-[50px]">
+            <div id="courses"
+                class="grid justify-items-center grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-screen">
+    
+                <div
+                    class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden">
+                    <img class="h-[50%] object-cover transition-transform duration-700"
+                        src="https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2huaWNhbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="/">
+                    <h2 class="text-red-400 font-bold p-1 bg-gray-200">Course 1</h2>
+                    <p class="p-1 text-[#949494]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?
+                    </p>
+                    <h2 class="text-red-400 font-bold px-4 text-left hover:text-lime-400">COST: ₹1,166/-</h2>
                     <div class="flex justify-around border-t border-gray-100">
                         <button
-                            class="text-yellow-300 font-semibold bg-black text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-black transition-all duration-300 ease-in-out"
-                            onclick="">
-                            Save
+                            class="text-red-400 text-2xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                            onclick="deleteCourse()">
+                            <i class="ri-close-circle-line" on></i>
                         </button>
                         <button
-                            class="text-white font-semibold bg-black text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                            class="text-white text-2xl p-3 w-[50%] hover:bg-gray-200 hover:text-black transition-all duration-300 ease-in-out"
                             onclick="toggleEdit('1')">
-                            Cancel
+                            <i class="ri-edit-box-line"></i>
                         </button>
                     </div>
+    
+                    <div id="1" class="hidden absolute top-[50%] h-[50%] w-full rounded-b-xl bg-transparent">
+                        <input type="text" placeholder="Name"
+                            class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
+                        <p class="p-1 bg-red-400 text-red-400 opacity-[50%]">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Nulla, praesentium?</p>
+                        <input type="text" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-black">
+                        <div class="flex justify-around border-t border-gray-100">
+                            <button
+                                class="text-yellow-300 font-semibold bg-black text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-black transition-all duration-300 ease-in-out"
+                                onclick="">
+                                Save
+                            </button>
+                            <button
+                                class="text-white font-semibold bg-black text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                                onclick="toggleEdit('1')">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div
-                class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden">
-                <img class="h-[50%] object-cover transition-transform duration-700"
-                    src="https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2huaWNhbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
-                    alt="/">
-                <h2 class="text-red-400 font-bold p-1 bg-gray-200">Course 1</h2>
-                <p class="p-1 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?
-                </p>
-                <h2 class="text-red-400 font-bold px-4 text-left hover:text-lime-400">COST: ₹1,166/-</h2>
-                <div class="flex justify-around border-t border-gray-100">
-                    <button
-                        class="text-red-400 text-2xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
-                        onclick="deleteCourse()">
-                        <i class="ri-close-circle-line" on></i>
-                    </button>
-                    <button
-                        class="text-white text-2xl p-3 w-[50%] hover:bg-gray-200 hover:text-black transition-all duration-300 ease-in-out"
-                        onclick="toggleEdit('2')">
-                        <i class="ri-edit-box-line"></i>
-                    </button>
-                </div>
-
-                <div id="2"
-                    class="absolute bottom-0 h-[50%] w-full rounded-b-xl bg-transparent transition-all duration-500 ease-in-out">
-                    <input type="text" placeholder="Name"
-                        class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
-                    <p class="p-1 bg-red-400 text-red-400 opacity-[50%]">Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Nulla, praesentium?</p>
-                    <input type="number" min="50" max="7999" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-black w-full">
+    
+                <div
+                    class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden">
+                    <img class="h-[50%] object-cover transition-transform duration-700"
+                        src="https://plus.unsplash.com/premium_photo-1661963874418-df1110ee39c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2huaWNhbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="/">
+                    <h2 class="text-red-400 font-bold p-1 bg-gray-200">Course 1</h2>
+                    <p class="p-1 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?
+                    </p>
+                    <h2 class="text-red-400 font-bold px-4 text-left hover:text-lime-400">COST: ₹1,166/-</h2>
                     <div class="flex justify-around border-t border-gray-100">
                         <button
-                            class="text-yellow-300 font-semibold bg-black text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-black transition-all duration-300 ease-in-out"
-                            onclick="">
-                            Save
+                            class="text-red-400 text-2xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                            onclick="deleteCourse()">
+                            <i class="ri-close-circle-line" on></i>
                         </button>
                         <button
-                            class="text-white font-semibold bg-black text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                            class="text-white text-2xl p-3 w-[50%] hover:bg-gray-200 hover:text-black transition-all duration-300 ease-in-out"
                             onclick="toggleEdit('2')">
-                            Cancel
+                            <i class="ri-edit-box-line"></i>
                         </button>
                     </div>
+    
+                    <div id="2"
+                        class="absolute bottom-0 h-[50%] w-full rounded-b-xl bg-transparent transition-all duration-500 ease-in-out">
+                        <input type="text" placeholder="Name"
+                            class="text-red-400 text-center py-1 px-5 font-bold bg-gray-300">
+                        <p class="p-1 bg-red-400 text-red-400 opacity-[50%]">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Nulla, praesentium?</p>
+                        <input type="number" min="50" max="7999" placeholder="COST" class="text-red-400 text-center px-5 font-bold bg-black w-full">
+                        <div class="flex justify-around border-t border-gray-100">
+                            <button
+                                class="text-yellow-300 font-semibold bg-black text-xl p-3 w-[50%] hover:bg-yellow-300 hover:text-black transition-all duration-300 ease-in-out"
+                                onclick="">
+                                Save
+                            </button>
+                            <button
+                                class="text-white font-semibold bg-black text-xl p-3 w-[50%] hover:bg-red-400 hover:text-white transition-all duration-300 ease-in-out"
+                                onclick="toggleEdit('2')">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 </div>
+    
             </div>
-
         </div>
     </div>
 

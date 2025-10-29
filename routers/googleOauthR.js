@@ -1,23 +1,6 @@
 const { Router } = require('express');
-const authRouter = Router();
-
-const session = require('express-session');
 const passport = require('passport');
-require('../config/passport-setup'); // This executes the passport config file
-
-// --- Middleware Setup ---
-
-// 1. Set up session middleware
-authRouter.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // Set to true if you're using HTTPS
-}));
-
-// 2. Initialize Passport and its session middleware
-authRouter.use(passport.initialize());
-authRouter.use(passport.session());
+const authRouter = Router();
 
 // --- Auth Routes ---
 

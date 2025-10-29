@@ -15,8 +15,9 @@
     <div>
         <input id="home-btn" type="button" value="<"
             class="text-white bg-slate-500 hover:bg-slate-400 m-3 p-[7px] rounded-[5px] border-slate-600 hover:text-slate-500 hover:cursor-pointer"
-            onclick="location.href='index.html'">
-        <div id="signupForm" class="flex flex-col m-[1%] mx-[34%] bg-white shadow rounded-[10px] p-10">
+            onclick="location.href='home.html'">
+
+        <div id="signupForm" class="hidden flex flex-col m-[1%] mx-[34%] bg-white shadow rounded-[10px] p-10">
             <h1 class="text-3xl font-medbold p-5">Create an account</h1>
 
             <div class="flex flex-col">
@@ -73,7 +74,7 @@
             </div>
         </div>
 
-        <div id="loginForm" class="hidden flex flex-col m-[2%] mx-[34%] bg-white shadow rounded-[10px] p-10">
+        <div id="loginForm" class="flex flex-col m-[2%] mx-[34%] bg-white shadow rounded-[10px] p-10">
             <h1 class="text-3xl font-medbold p-5">Login to your account</h1>
             <div class="flex flex-col">
                 <label for="login-email-input" class="mx-4 mt-5 p-1">Your email</label>
@@ -89,7 +90,7 @@
             </div>
             <input type="button"
                 class="text-white bg-cyan-500 hover:bg-cyan-600 hover:cursor-pointer mx-[40%] rounded-[5px] mt-4 p-1 py-2"
-                value="Login" onclick="Login()">
+                value="Login" onclick="Login(); location.href='home.html'">
 
             <hr class="border-gray-300 my-4">
             <!-- Component -->

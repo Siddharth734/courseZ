@@ -13,8 +13,8 @@ function togglepage() {
     const aPg = document.getElementById("admin-page");
 
     // if(localStorage.getItem("token") === null){
-    //     aLog.classList.remove('hidden');
-    //     aPg.classList.add('hidden');
+        // aLog.classList.remove('hidden');
+        // aPg.classList.add('hidden');
     // }else{
         aPg.classList.remove('hidden');
         aLog.classList.add('hidden');

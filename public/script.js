@@ -1,5 +1,10 @@
 function init() {
-    loadallCourses();
+    if(window.location.pathname.split('/')[1] === "home.html"){
+        loadallCourses();
+        userInfo();
+    }
+    else if(window.location.pathname.split('/')[1] === "index.html"){
+    }
 }
 
 function toggleMaker() {
@@ -8,15 +13,28 @@ function toggleMaker() {
     const login = document.getElementById("loginForm");
     const homeBtn = document.getElementById("home-btn");
 
-    if(main.style.display === '' || main.style.display === 'block'){
-        main.style.display = 'none';
-        signup.style.display = 'flex';
-        homeBtn.style.display = 'block';
+    if(main.classList.contains('hidden')){
+        main.classList.remove('hidden');
+        signup.classList.add('hidden');
+        login.classList.add('hidden');
+        homeBtn.classList.add('hidden');
     }else{
-        main.style.display = 'block';
-        signup.style.display = 'none';
-        login.style.display = 'none';
-        homeBtn.style.display = 'none';
+        main.classList.add('hidden');
+        login.classList.remove('hidden');
+        homeBtn.classList.remove('hidden');
+    }
+}
+
+function toggleSL() {
+    const signup = document.getElementById("signupForm");
+    const login = document.getElementById("loginForm");
+
+    if(signup.classList.contains('hidden')){
+        signup.classList.remove('hidden');
+        login.classList.add('hidden');
+    }else{
+        signup.classList.add('hidden');
+        login.classList.remove('hidden');
     }
 }
 
@@ -36,6 +54,8 @@ async function Signup() {
         email.value = "";
         name.value = "";
         password.value = "";
+
+        toggleSL();
     } catch (error) {
         console.log(`Signup failed: ${error}`)
     }
@@ -61,8 +81,28 @@ async function Login() {
 
 async function userInfo() {
     try {
-        const response = await axios.get('http://localhost:3009/profile');
-        alert(response.data.Photo);
+        const response = await axios.get('http://localhost:3009/user/profile');
+
+        if(window.location.pathname.split('/')[1] == "home.html"){
+            document.getElementById("profile-pic").innerHTML = `
+            <img class="h-[50px] w-[50px] rounded-full" 
+                referrerpolicy="no-referrer"
+                src="${response.data.Photo}" 
+                alt="">`;
+
+            alert(response.data.Photo);
+        }
+        else if(window.location.pathname.split('/')[1] == "index.html"){
+            // document.getElementById("mycourse-profile").referrerPolicy = "no-referrer";
+            // document.getElementById("mycourse-profile").src = response.data.Photo;
+            document.getElementById("mycourse-profile").innerHTML = `
+            <a href="#" class="flex items-center gap-2 border-2 border-gray-300 px-4 py-2 rounded-lg hover:border-green-500 hover:bg-green-50 transition-all group">
+                <span class="text-lg font-semibold text-gray-600 group-hover:text-green-600">Bal: </span>
+                <span class="text-lg text-gray-700 group-hover:text-green-700">₹ ${response.data.Balance}</span>
+            </a>
+            <img src="${response.data.Photo}" alt="profile pic"
+                class="h-[66px] w-[66px] rounded-full p-2">`;
+        }
     } catch (error) {
         alert(`error was: ${error}`)
     }
@@ -82,7 +122,7 @@ async function loadallCourses() {
 }
 
 function courseCard(c){
-    return`<div class="group rounded-xl shadow-md border border-gray-300 hover:border-gray-500 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
+    return`<div class="group rounded-xl shadow-md border border-gray-300 hover:border-gray-400 hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden ">
                 <img class="object-cover h-[239px] w-[317px]"
                     src=${c.image}
                     alt="/">
@@ -90,7 +130,8 @@ function courseCard(c){
                     <h1 class="text-xl mb-[6%]">${c.title}</h1>
                     <p class="text-lg bg-gray-100 px-4 text-red-400">₹ ${c.cost}/-</p>
                     <div class="flex gap-1">
-                        <button class="flex-1 bg-[#393E46] px-4 py-2 rounded-2xl text-white hover:bg-[#222831]">Buy Now <i
+                        <button class="flex-1 bg-[#393E46] px-4 py-2 rounded-2xl text-white hover:bg-[#222831]"
+                        onclick="purchaseCourse('${c._id}')">Buy Now <i
                             class="ri-arrow-right-line"></i>
                         </button>
                         <button class="border-2 border-red-400 rounded-full text-red-400 w-[10%] hover:text-red-300 focus:w-[15%] focus:text-white focus:bg-red-400 transition-all duration-300 ease-in-out">
@@ -99,6 +140,41 @@ function courseCard(c){
                     </div>
                 </div>
             </div>`;
+}
+
+async function purchaseCourse(id) {
+    try {        
+        const response = await axios.put("http://localhost:3009/user/purchase",{
+            id: id
+        });
+
+        alert(response.data.message);
+    } catch (error) {
+        alert(`error purchasing course: ${error}`)
+    }
+}
+
+async function loadMyCourses() {
+    try {
+        const courseContainer = document.getElementById("courses");
+        const response = axios.get("http://localhost:3009/user/mycourses");
+    
+        courseContainer.innerHTML = "";
+        response.data.courses.forEach(c => {
+            courseContainer.innerHTML += mycourseCard(c);
+        });
+    } catch (error) {
+        alert(`error loading myCourses: ${error}`)
+    }
+}
+
+function mycourseCard(c){
+    return `<div class="group h-[250px] w-[300px] border border-gray-400 rounded-2xl hover:shadow-xl hover:border-0 overflow-hidden">
+            <div class="text-3xl h-[58%] font-bold bg-[url(${c.image})] bg-cover bg-center rounded-t-2xl p-10 hover:underline"></div>
+            <div class="rounded-[5px] text-xl p-4">${c.title}</div>
+            <button class="absolute rounded-xl m-4 p-2 bg-[#393E46] text-white hover:bg-[#222831]"
+            onclick="">Open<i class="ri-expand-diagonal-2-line"></i></button>
+          </div>`
 }
 
 init();

@@ -1,10 +1,11 @@
 function init() {
     if(window.location.pathname.split('/')[1] === "home.html"){
         loadallCourses();
-        userInfo();
     }
     else if(window.location.pathname.split('/')[1] === "index.html"){
+        loadMyCourses();
     }
+    userInfo();
 }
 
 function toggleMaker() {
@@ -90,7 +91,7 @@ async function userInfo() {
                 src="${response.data.Photo}" 
                 alt="">`;
 
-            alert(response.data.Photo);
+            // alert(response.data.Photo);
         }
         else if(window.location.pathname.split('/')[1] == "index.html"){
             // document.getElementById("mycourse-profile").referrerPolicy = "no-referrer";
@@ -157,7 +158,7 @@ async function purchaseCourse(id) {
 async function loadMyCourses() {
     try {
         const courseContainer = document.getElementById("courses");
-        const response = axios.get("http://localhost:3009/user/mycourses");
+        const response = await axios.get("http://localhost:3009/user/mycourses");
     
         courseContainer.innerHTML = "";
         response.data.courses.forEach(c => {

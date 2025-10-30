@@ -83,34 +83,37 @@ userRouter.get('/profile', async (req, res) => {
 userRouter.put('/purchase', async (req, res) => {
     const courseId = req.body.id;
     const Course = await CourseModel.findById(courseId);
-    const User = await UserModel.findById(req.user._id);
 
     if(!Course){
         res.json({
             message: "Invalid Course"
         })
-        return;
-    }else if(User.balance < Course.cost){
+        return;   
+    }
+
+    const User = await UserModel.findById(req.user._id);
+
+    const userBalance = Number(User.balance);
+    const courseCost = Number(Course.cost);
+    
+    if(userBalance < courseCost){
         res.json({
             message: "Insufficient balance"
         })
         return;
     }else{
         User.courses.push(courseId);
-        User.balance = (User.balance - Course.cost);
+        User.balance = String(userBalance - courseCost);
         await User.save();
-
-        const populatedUser = await UserModel.findById(User._id).populate('courses');
-
+        
         res.json({
-            message: "Sucessful Purchase",
-            courses: populatedUser.courses
+            message: "Sucessful Purchase"
         })
     }
 });
 
 userRouter.get('/mycourses', async (req, res) => {
-    const User = await UserModel.findById(req.user._id);
+    const User = await UserModel.findById(req.user._id).populate('courses');
 
     res.json({
         courses: User.courses

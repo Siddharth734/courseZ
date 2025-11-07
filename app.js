@@ -34,7 +34,7 @@ app.use(express.static('public'));
 
 // --- Middleware Setup ---
 
-// 1. Set up session middleware
+//  Set up session middleware
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -42,7 +42,7 @@ app.use(session({
     cookie: { secure: false } // Set to true if you're using HTTPS
 }));
 
-// 2. Initialize Passport and its session middleware
+//  Initialize Passport and its session middleware
 app.use(passport.initialize());
 app.use(passport.session());
 

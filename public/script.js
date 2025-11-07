@@ -94,8 +94,6 @@ async function userInfo() {
             // alert(response.data.Photo);
         }
         else if(window.location.pathname.split('/')[1] == "index.html"){
-            // document.getElementById("mycourse-profile").referrerPolicy = "no-referrer";
-            // document.getElementById("mycourse-profile").src = response.data.Photo;
             document.getElementById("mycourse-profile").innerHTML = `
             <a href="#" class="flex items-center gap-2 border-2 border-gray-300 px-4 py-2 rounded-lg hover:border-green-500 hover:bg-green-50 transition-all group">
                 <span class="text-lg font-semibold text-gray-600 group-hover:text-green-600">Bal: </span>

@@ -24,13 +24,13 @@ const PORT = process.env.PORT || 3009;
 
 app.enable("trust proxy");
 
-// app.use((req, res, next) => {
-//   // If request came in over HTTP, redirect to HTTPS
-//   if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-//     return res.redirect('https://' + req.get('host') + req.originalUrl);
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  // If request came in over HTTP, redirect to HTTPS
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+    return res.redirect('https://' + req.get('host') + req.originalUrl);
+  }
+  next();
+});
 
 
 app.use(express.json());
@@ -68,7 +68,7 @@ async function startServer() {
     try {
         await mongoose.connect(process.env.MONGO_LINK);
         app.listen(PORT, () => {
-            console.log(`Server starting at: http://localhost:${PORT}`);
+            console.log(`Server starting at: https://localhost:${PORT}`);
         });
     } catch (error) {
         console.log(`error occured while starting the server: ${error}`);

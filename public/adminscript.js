@@ -111,7 +111,9 @@ function courseDOM(c) {
     return `<div class="group relative h-[375px] w-[250px] bg-gradient-to-b rounded-xl border border-gray-300 text-center overflow-hidden"> 
                 <img class="object-cover h-[183px] w-[248px]" src=${c.image} 
                 alt="/">
-                <h2 class="text-red-400 font-bold p-1 bg-gray-300">${c.title}</h2>
+                <h2 class="text-red-400 font-bold p-1 px-4 bg-gray-300 truncate" title="${c.title}">
+                    ${c.title}
+                </h2>
                 <p class="p-1 text-[#949494]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, praesentium?</p>
                 <h2 class="text-red-400 font-bold px-4 text-left hover:text-gray-300">COST: ₹${c.cost}/-</h2>
                 <div class="flex justify-around border-t border-gray-100">

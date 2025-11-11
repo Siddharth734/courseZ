@@ -131,7 +131,9 @@ function courseCard(c){
                     src=${c.image}
                     alt="/">
                 <div class="flex flex-col gap-4 p-4">
-                    <h1 class="text-xl mb-[6%]">${c.title}</h1>
+                    <h1 class="text-xl mb-[6%] truncate" title="${c.title}">
+                        ${c.title}
+                    </h1>
                     <p class="text-lg bg-gray-100 px-4 text-red-400">₹ ${c.cost}/-</p>
                     <div class="flex gap-1">
                         <button class="flex-1 bg-[#393E46] px-4 py-2 rounded-2xl text-white hover:bg-[#222831]"
@@ -175,7 +177,9 @@ async function loadMyCourses() {
 function mycourseCard(c){
     return `<div class="group h-[250px] w-[300px] border border-gray-400 rounded-2xl hover:shadow-xl hover:border-0 overflow-hidden">
             <div class="text-3xl h-[58%] font-bold bg-[url(${c.image})] bg-cover bg-center rounded-t-2xl p-10 hover:underline"></div>
-            <div class="rounded-[5px] text-xl p-4">${c.title}</div>
+            <div class="rounded-[5px] text-xl p-4 truncate" title="${c.title}">
+                ${c.title}
+            </div>
             <button class="absolute rounded-xl m-4 p-2 bg-[#393E46] text-white hover:bg-[#222831]"
             onclick="">Open<i class="ri-expand-diagonal-2-line"></i></button>
           </div>`

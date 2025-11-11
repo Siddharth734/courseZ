@@ -3,4 +3,3 @@ node_modules/*
 
 *.env
 db.js
-adminR.js

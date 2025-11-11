@@ -21,6 +21,18 @@ require('./config/passport-setup'); // This executes the passport config file
 const app = express();
 const PORT = process.env.PORT || 3009;
 
+
+app.enable("trust proxy");
+
+app.use((req, res, next) => {
+  // If request came in over HTTP, redirect to HTTPS
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+    return res.redirect('https://' + req.get('host') + req.originalUrl);
+  }
+  next();
+});
+
+
 app.use(express.json());
 
 app.get('/', (req, res) => {

@@ -1,3 +1,8 @@
+const isLocal = window.location.origin.includes("localhost");
+const apiBase = isLocal 
+  ? "http://localhost:3009"
+  : "https://api-coursez.onrender.com";
+
 function init() {
     togglepage();
     loadcourses();
@@ -26,7 +31,7 @@ async function signup() {
         const accessname = document.getElementById("admin-email");
         const password = document.getElementById("admin-password");
     
-        const response = await axios.post("http://localhost:3009/admin/login",{
+        const response = await axios.post(`${apiBase}/admin/login`,{
             accessname: accessname.value,
             password: password.value
         });
@@ -52,7 +57,7 @@ async function courseAdd() {
             return;
         }
         
-        const response = await axios.post("http://localhost:3009/admin/course",{
+        const response = await axios.post(`${apiBase}/admin/course`,{
             title: title.value,
             cost: cost.value,
             image: img.value
@@ -72,7 +77,7 @@ async function courseAdd() {
 
 async function loadcourses() {
     try {
-        const response = await axios.get("http://localhost:3009/admin/course");
+        const response = await axios.get(`${apiBase}/admin/course`);
 
         document.getElementById("courses").innerHTML = "";
         response.data.courses.forEach(c => {
@@ -85,7 +90,7 @@ async function loadcourses() {
 
 async function deleteCourse(id) {
     try {
-        const response = await axios.delete("http://localhost:3009/admin/course",{
+        const response = await axios.delete(`${apiBase}/admin/course`,{
             data: {
                 id: id
             }
@@ -161,7 +166,7 @@ async function editCourse(id) {
             return;
         }
     
-        const response = await axios.put("http://localhost:3009/admin/course",{
+        const response = await axios.put(`${apiBase}/admin/course`,{
             title: newTitle.value,
             cost: newCost.value,
             image: newImg.value,

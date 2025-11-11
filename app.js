@@ -56,7 +56,7 @@ async function startServer() {
     try {
         await mongoose.connect(process.env.MONGO_LINK);
         app.listen(PORT, () => {
-            console.log(`Server starting at: http://localhost:${PORT}`);
+            console.log(`Server starting at: https://localhost:${PORT}`);
         });
     } catch (error) {
         console.log(`error occured while starting the server: ${error}`);

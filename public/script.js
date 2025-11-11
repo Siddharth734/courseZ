@@ -1,3 +1,8 @@
+const isLocal = window.location.origin.includes("localhost");
+const apiBase = isLocal 
+  ? "http://localhost:3009"
+  : "https://api-coursez.onrender.com";
+
 function init() {
     if(window.location.pathname.split('/')[1] === "home.html"){
         loadallCourses();
@@ -44,7 +49,7 @@ async function Signup() {
         const email = document.getElementById("signup-email-input");
         const name = document.getElementById("signup-name-input");
         const password = document.getElementById("signup-password-input");
-        const response = await axios.post("http://localhost:3009/user/signup",{
+        const response = await axios.post(`${apiBase}/user/signup`,{
             email: email.value,
             name: name.value,
             password: password.value
@@ -66,7 +71,7 @@ async function Login() {
     try {
         const email = document.getElementById("login-email-input");
         const password = document.getElementById("login-password-input");
-        const response = await axios.post("http://localhost:3009/user/login",{
+        const response = await axios.post(`${apiBase}/user/login`,{
             email: email.value,
             password: password.value
         });
@@ -82,7 +87,7 @@ async function Login() {
 
 async function userInfo() {
     try {
-        const response = await axios.get('http://localhost:3009/user/profile');
+        const response = await axios.get(`${apiBase}/user/profile`);
 
         if(window.location.pathname.split('/')[1] == "home.html"){
             document.getElementById("profile-pic").innerHTML = `
@@ -109,7 +114,7 @@ async function userInfo() {
 
 async function loadallCourses() {
     try {
-        const response  = await axios.get("http://localhost:3009/course/all");
+        const response  = await axios.get(`${apiBase}/course/all`);
 
         document.getElementById("course-container").innerHTML = "";
         response.data.courses.forEach(c => {
@@ -143,7 +148,7 @@ function courseCard(c){
 
 async function purchaseCourse(id) {
     try {        
-        const response = await axios.put("http://localhost:3009/user/purchase",{
+        const response = await axios.put(`${apiBase}/user/purchase`,{
             id: id
         });
 
@@ -156,7 +161,7 @@ async function purchaseCourse(id) {
 async function loadMyCourses() {
     try {
         const courseContainer = document.getElementById("courses");
-        const response = await axios.get("http://localhost:3009/user/mycourses");
+        const response = await axios.get(`${apiBase}/user/mycourses`);
     
         courseContainer.innerHTML = "";
         response.data.courses.forEach(c => {

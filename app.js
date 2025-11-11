@@ -19,7 +19,7 @@ const passport = require('passport');
 require('./config/passport-setup'); // This executes the passport config file
 
 const app = express();
-const PORT = 3009;
+const PORT = process.env.PORT || 3009;
 
 app.use(express.json());
 
